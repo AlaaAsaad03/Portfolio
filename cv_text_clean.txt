@@ -1,0 +1,95 @@
+Alaa Asaad 
+Address: Beirut, Lebanon 
+Email: alaa.b.asaad@gmail.com| Phone Number: +961 81 817 756 | LinkedIn | GitHub 
+SUMMARY 
+Full-stack developer with hands -on experience in building scalable web applications, database management, and API inte gration. 
+Proficient in Angular, React.js, .NET, and Node.js, with strong problem -solving, adaptability, and critical thinking skills. Passionate about 
+delivering efficient, user-centric solutions while leveraging AI, cloud technologies, DevOps, and best development practices. 
+PROFESSIONAL EXPERIENCE 
+Backend Team Lead Intern | URM Enroll – Remotely, Berlin January 2026 – Februaury 2026 
+Leading backend architecture and AI integration for a multi -tenant SaaS platform connecting  international students and nurses with 
+German universities and hospitals. 
+ Architected PostgreSQL 16 database with Row -Level Security (RLS) ensuring secure multi -tenant isolation and GDPR -compliant 
+data handling across 10+ core entities. 
+ Built AI-powered CV parsing pipeline using Edge Functions (Deno/TypeScript) and LLM integration, achieving 70% structured data 
+extraction accuracy. 
+ Developed weighted matching engine (0 –100 scoring) combining eligibility constraints and performance -based criteria to 
+optimize applicant placement. 
+ Implemented automated eligibility verification and compliance tracking system processing 500+ documents with audit logging. 
+Technologies: Supabase, Deno, TypeScript, PostgreSQL, NestJs, REST API’s 
+Full Stack Developer Intern | ADADK – Remotely, Berlin December 2025 – January 2026 
+Engineered an IoT-based smart water management system that enabled real-time monitoring and automated leak detection for property 
+managers, reducing water waste incidents by enabling proactive alerts and cutting response time.  
+ Developed RESTful APIs for IoT device lifecycle management, enabling seamless telemetry ingestion and real-time processing for 
+100+ connected devices.  
+ Architected PostgreSQL relational database supporting multitenancy across users, properties, zones, devices, and technicians 
+with optimized query performance.  
+ Built real -time alerts and notifications using WebSockets (Socket.io) and Redis delivering instant notifications for anomaly 
+detection and threshold breaches. 
+ Implemented enterprise-grade security JWT authentication, Google OAuth, and role-based for secure multi-role access control. 
+Technologies: NestJs, TypeScript, PostgreSQL, TypeORM, Socket.io, Redis, JWT, OAuth 
+Project Management and Support Intern | INJAZ Lebanon – Beirut, Lebanon November 2025 – December 2025 
+Streamlined program operation and supplier coordination for youth entrepreneurship initiatives, improving project delivery timelines and 
+reducing manual overhead process automation and systematic tracking. 
+ Automation Initiative: Developed Python automation script using Pandas and OpenPyXL to process student registration data and 
+generate compliance reports, reducing manual data entry by 40% and eliminating human errors in tracking 200+ student records.  
+ Coordinate supplier documentations and finalized partnership agreements in post-scale capacity, ensuring 100% on-time delivery 
+of program materials and services. 
+ Supported daily operations (data entry, scheduling, documentation), improving workflow efficiency and team productivity. 
+Technologies: Python (Pandas, OpenPyXL), Google Sheets API, Excel, Data Analytics 
+   Full Stack Developer Intern | IDS Fintech – Beirut, Lebanon July 2024 – August 2024 
+Contributed to fintech application development focused on improving transaction processing performance and user engagement and user 
+engagement for banking clients, delivering features that enhanced application responsiveness and data handling capabilities. 
+
+ Optimized database interactions and query performance using SQL, ADO.NET, Entity Framework, and Dapper, reducing API 
+response times by 35% and improving data retrieval efficiency. 
+ Developed full-stack features using C#, JavaScript, JQuery, Angular and DevExtreme, delivering responsive UI components and 
+business logic that increased user engagement by 30%.  
+Technologies: C#, .Net, Angular, JavaScript, jQuery, DevExtreme, SQL Server, Entity Framework, Dapper, ADO.NET, REST APIs 
+PROJECTS 
+Fillia (Award-Winning Capstone Project) 
+A donation and sales platform aiding crisis-affected Lebanese communities, featuring AI -powered verification, fraud detection, and 
+personalized matching algorithms that increased donation-case matching success by 22% and accelerated case submissions by 15%. 
+Technologies Used:  React.js (Vite), Tailwind CSS, Framer Motion, Node.js, Express.js, MongoDB Atlas, Cosine Similarity, AI (Cosine 
+Similarity, Trust Verification, Image Validation), Docker, Hostinger, Jest. 
+Table Booking System 
+A restaurant reservation system that allows users to book tables, manage reservations, and receive real-time availability updates. Includes 
+an admin dashboard, user authentication, notifications, and secure booking confirmation. 
+Technologies Used: Angular, TypeScript, HTML, CSS, Bootstrap, .NET Core, Entity Framework, ASP.NET Web API, Azure, SQL Server. 
+Buildings Management System 
+Enterprise-grade property management platform with role-based (Super Admin / Admin) authentication, enabling efficient management 
+of residential complexes, building and administrative personnel with search, pagination, and automated admin creation workflow.  
+Technologies Used: Flask, SQLAlchemy, MySQL, Angular, Angular Material, JWT, REST APIs, Repository Pattern. 
+Waltrack – Personal Finance Expense Tracker 
+Financial management web application with transaction categorization, detailed expense history, and i nteractive data visualizations, 
+helping users analyze spending patterns and improve budget management. 
+Technologies Used: ASP.NET Core MVC, C#, SQL Server, Syncfusion UI Components, HTML5, CSS3, JavaScript. 
+EDUCATION 
+Bachelor of Science in Computer Science | Al Maaref University (MU) – Beirut, Lebanon October 2021 – February 2025 
+ Secured Third Place in Al Maaref University's Best Graduation Project Competition for the academic year 2024–2025, recognizing 
+innovation, technical excellence, and impactful problem-solving. 
+SKILLS 
+Programming Languages: JavaScript, TypeScript, C#, Python, PHP (Basic). 
+Frontend Development: HTML, CSS, React.js, Next.js, Angular, DevExtreme, Tailwind CSS, Bootstrap, Framer Motion, Syncfusion UI. 
+Backend Development: Node.js, Express.js, ASP.NET, Flask, Nest.js, WebSockets (Socket.io). 
+Database and ORM: MySQL, SQL, MongoDB Atlas, SQLAlchemy, PostgreSQL, TypeORM, Supabase. 
+Tools: Git, Postman, SSMS, MySQL Workbench, Jupyter Notebook, Azure, Docker, Jira, Canva, MS Office, Redis, PhpMyAdmin, XAMPP. 
+Development Principles and Methodologies: MVC Architecture, SOLID Principles, RESTful APIs, Agile Methodologies (Scrum, Kanban). 
+Soft Skills: Problem-Solving, Adaptability, Team Collaboration, Communication, Time Management, Attention to Detail, Critical Thinking. 
+Languages: Arabic (native), English (fluent). 
+ 
+CERTIFICATES 
+Ready4Work – INJAZ Lebanon | Credential ID:  AA25095481      September 2025 
+Generation AI – eFlow.ai, Google.org | Credential ID:  SxnRVzpgW6-iy      September 2025 
+Clean and Scalable Code – Software Engineering Excellence | Credential ID:  cert-dsc0d810c  August 2025 
+Entrepreneurship and AI – Ektidar Project | Credential ID:  1R5YBnBQUxPbi    July 2025 
+Prompt Engineering – Tech Trendy | Credential ID:  pBUYmniEWcje1     July 2025 
+
+Foundational C# with Microsoft – Microsoft | Credential ID:  alaa_asaad-fcswm    July 2025  
+MERN Stack Development – Udemy | Credential ID:  UC-4dc27feb-8648-4a67-835a-155ecc0376ce   May 2025  
+Frontend Developer (React) Certificate – HackerRank | Credential ID:  1c0cf525e0b    May 2025  
+PHP Boot Camp with MySQL – Udemy | Credential ID:  UC-91941e06-7bc8-464e-9278-64ac6b61e68e   December 2024 
+React JavaScript – Alison | Credential ID:  1ymUjGYNAvTy1YwB_drC62lxmdhHQVz5d     October 2024 
+ 
+ 
+

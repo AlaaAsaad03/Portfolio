@@ -59,11 +59,35 @@ const fade = (delay = 0) => ({
 });
 
 export default function PremiumPortfolio() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [counter, setCounter] = useState(0);
+  const [statusText, setStatusText] = useState('BOOTING SYSTEM');
   const [activeExp, setActiveExp] = useState(0);
   const [navOpen, setNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [status, setStatus] = useState(null); // 'sending', 'success', 'error'
+  const [status, setStatus] = useState(null); 
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+
+  useEffect(() => {
+    let count = 0;
+    const interval = setInterval(() => {
+      count += Math.floor(Math.random() * 15) + 5;
+      if (count >= 100) {
+        count = 100;
+        clearInterval(interval);
+        setTimeout(() => setIsLoading(false), 600);
+      }
+      setCounter(count);
+      
+      if (count > 80) setStatusText('ADMITTING USER');
+      else if (count > 40) setStatusText('SYNCHRONIZING LOGIC');
+    }, 120);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isLoading ? 'hidden' : 'auto';
+  }, [isLoading]);
 
   const handleForm = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -108,8 +132,28 @@ export default function PremiumPortfolio() {
 
   return (
     <div className="pr-root">
+      {/* ─ High-End Kinetic Loader ─ */}
+      <div className={`pr-kinetic-loader ${!isLoading ? 'pr-loader-exit' : ''}`}>
+        <div className="pr-loader-panel pr-panel-top"></div>
+        <div className="pr-loader-panel pr-panel-bottom"></div>
+        
+        <div className="pr-loader-center">
+          <div className="pr-loader-meta">
+            <span className="pr-loader-status">{statusText}</span>
+            <span className="pr-loader-year">© 2026</span>
+          </div>
+          <div className="pr-loader-count">
+            {counter.toString().padStart(3, '0')}
+            <span className="pr-loader-perc">%</span>
+          </div>
+          <div className="pr-loader-footer">
+             ALAA AS'AD — EXECUTIVE PORTFOLIO
+          </div>
+        </div>
+      </div>
 
-      {/* TOP BAR */}
+      <div className={`pr-main-layout ${isLoading ? 'pr-hidden' : 'pr-reveal'}`}>
+        {/* TOP BAR */}
       <div className="pr-topbar">
         <span className="pr-pulse-dot" />
         <span>Available for full-time roles &amp; internships</span>
@@ -1028,7 +1072,33 @@ export default function PremiumPortfolio() {
           .pr-content{padding:6rem 0.75rem 2rem;}
           .pr-form-row{grid-template-columns:1fr;}
         }
+
+        /* ─ High-End Kinetic Loader ─ */
+        .pr-kinetic-loader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+        .pr-loader-panel{position:absolute;left:0;width:100%;height:50%;background:#04040A;transition:transform 0.9s cubic-bezier(0.87, 0, 0.13, 1);z-index:1;}
+        .pr-panel-top{top:0;}
+        .pr-panel-bottom{bottom:0;}
+        
+        .pr-loader-exit .pr-panel-top{transform:translateY(-101%);}
+        .pr-loader-exit .pr-panel-bottom{transform:translateY(101%);}
+
+        .pr-loader-center{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;transition:opacity 0.4s ease, transform 0.4s ease;}
+        .pr-loader-exit .pr-loader-center{opacity:0;transform:scale(0.95);}
+
+        .pr-loader-count{font-size:clamp(5rem, 15vw, 12rem);font-weight:900;color:var(--acc);font-family:'JetBrains Mono', monospace;line-height:1;display:flex;align-items:flex-end;}
+        .pr-loader-perc{font-size:0.25em;margin-left:0.1em;margin-bottom:0.15em;opacity:0.6;}
+
+        .pr-loader-meta{width:100%;display:flex;justify-content:space-between;font-size:0.65rem;font-weight:800;letter-spacing:0.2em;color:var(--mute);margin-bottom:1rem;text-transform:uppercase;}
+        .pr-loader-footer{font-size:0.65rem;font-weight:800;letter-spacing:0.3em;color:var(--mute);margin-top:2rem;}
+        .pr-loader-status{color:var(--txt);animation:blink 0.8s infinite;}
+
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:0.5}}
+
+        /* ─ Transition States ─ */
+        .pr-main-layout.pr-hidden{opacity:0;transform:scale(1.05);}
+        .pr-main-layout.pr-reveal{opacity:1;transform:scale(1);transition:opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);}
       `}</style>
+      </div>
     </div>
   );
 }

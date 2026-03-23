@@ -1,62 +1,16 @@
-# Alaa As'ad | Syntax Vertex Portfolio
+# React + Vite
 
-![Syntax Vertex Logo](https://raw.githubusercontent.com/AlaaAsaad03/Portfolio/master/public/vite.svg)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 📐 The Brand: Syntax Vertex (AA)
-**Syntax Vertex** represents the intersection of technical precision and creative architecture. The brand mark is a deconstructed "AA" monogram inspired by logic gates and terminal cursors, reflecting a career built on robust code and AI-driven solutions.
+Currently, two official plugins are available:
 
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 🚀 Professional Profile: Full-Stack Systems Architect
-A specialized software engineer with a focus on **Computer Science and Artificial Intelligence.** This portfolio showcases a journey from award-winning capstones to real-time enterprise IoT systems.
+## React Compiler
 
-### 🏆 Key Distinction
-*   **3rd Place** · Best Graduation Project Competition 2024–2025 (Al Maaref University)
-*   **Capstone: Fillia** · Crisis-response donation platform for Lebanon with AI-driven fraud detection.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
----
+## Expanding the ESLint configuration
 
-## 🛠️ The Tech Arsenal
-This project is built using a modern, performance-first stack:
-- **Core**: React.js + Vite (Next-generation HMR)
-- **Animation**: Framer Motion (Fluid Micro-interactions)
-- **Styling**: Vanilla CSS3 (Custom Glassmorphism & Neon Design System)
-- **Assets**: Structured in `public/` for absolute path resolution (CV & Logos)
-
----
-
-## 📂 Highlighted Architecture
-1.  **Fillia**: AI-driven crisis response platform (Award Winner).
-2.  **Smart Water Hub**: Enterprise IoT management system developed at ADADK.
-3.  **Waltrack**: Personal finance tracker with advanced data visualization.
-4.  **Building Management**: Full-stack SaaS with complex RBAC and automated workflows.
-
----
-
-## 🔧 Deployment Protocol
-To run the digital twin of this system locally:
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/AlaaAsaad03/Portfolio.git
-
-# 2. Install dependencies
-npm install
-
-# 3. Launch Development Node
-npm run dev
-
-# 4. Generate Production Bundle
-npm run build
-```
-
----
-
-## 📄 Contact & Verification
-- **Email**: alaa.b.asaad@gmail.com
-- **LinkedIn**: [Alaa As'ad](https://www.linkedin.com/in/alaa-asaad-00b87526a/)
-- **GitHub**: [AlaaAsaad03](https://github.com/AlaaAsaad03)
-
----
-
-**© 2026 Alaa As'ad | Syntax Vertex Portfolio**
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

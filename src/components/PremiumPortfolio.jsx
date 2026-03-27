@@ -1026,14 +1026,24 @@ export default function PremiumPortfolio() {
           .pr-exp-tabs{
             flex-direction:row; 
             overflow-x:auto; 
-            padding-bottom: 0.5rem; 
+            padding-bottom: 1rem; 
             border-bottom: 1px solid var(--border);
             scrollbar-width: none;
             -ms-overflow-style: none;
+            scroll-snap-type: x mandatory;
+            gap: 1.5rem;
+            -webkit-overflow-scrolling: touch;
           }
           .pr-exp-tabs::-webkit-scrollbar { display: none; }
-          .pr-exp-tab{border-left:none; border-bottom:2px solid transparent; padding: 0.75rem 1rem; white-space: nowrap;}
-          .pr-exp-tab.active{border-bottom-color:var(--acc); background: var(--surf2);}
+          .pr-exp-tab{
+            border-left:none; 
+            border-bottom:3px solid transparent; 
+            padding: 0.85rem 0.5rem; 
+            white-space: nowrap;
+            scroll-snap-align: start;
+            flex-shrink: 0;
+          }
+          .pr-exp-tab.active{border-bottom-color:var(--acc); background: none;}
           
           .pr-proj-grid{grid-template-columns: 1fr; gap: 1.5rem;}
           .pr-proj-card:first-child{grid-column: span 1;}
@@ -1079,6 +1089,7 @@ export default function PremiumPortfolio() {
         .pr-panel-top{top:0;}
         .pr-panel-bottom{bottom:0;}
         
+        .pr-loader-exit{pointer-events:none;visibility:hidden;transition:visibility 0s linear 0.9s, opacity 0.9s;}
         .pr-loader-exit .pr-panel-top{transform:translateY(-101%);}
         .pr-loader-exit .pr-panel-bottom{transform:translateY(101%);}
 

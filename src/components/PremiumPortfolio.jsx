@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, Linkedin, Mail, Download, ExternalLink, ArrowRight, ArrowUpRight, GraduationCap, Trophy, ShieldCheck, Award, Menu, X } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, ExternalLink, ArrowRight, ArrowUpRight, GraduationCap, Trophy, ShieldCheck, Award, Menu, X, Sun, Moon } from 'lucide-react';
 import profileImg from '../assets/profile.png';
 
 const EXP = [
@@ -62,11 +62,23 @@ export default function PremiumPortfolio() {
   const [isLoading, setIsLoading] = useState(true);
   const [counter, setCounter] = useState(0);
   const [statusText, setStatusText] = useState('BOOTING SYSTEM');
+  const [isDark, setIsDark] = useState(true);
   const [activeExp, setActiveExp] = useState(0);
   const [navOpen, setNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [status, setStatus] = useState(null); 
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+
+  useEffect(() => {
+    const saved = localStorage.getItem('pr-theme');
+    if (saved) setIsDark(saved === 'dark');
+    else if (window.matchMedia('(prefers-color-scheme: light)').matches) setIsDark(false);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+    localStorage.setItem('pr-theme', isDark ? 'dark' : 'light');
+  }, [isDark]);
 
   useEffect(() => {
     let count = 0;
@@ -164,9 +176,8 @@ export default function PremiumPortfolio() {
       <nav className={`pr-nav${scrolled ? ' pr-nav--solid' : ''}`}>
         <a href="#home" className="pr-brand">
           <svg className="pr-logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Syntax Vertex: A technical logic-gate mark representing the AA initials */}
-            <path d="M10 32V20L20 8L32 20V32" stroke="var(--acc)" strokeWidth="4" strokeLinejoin="round"/>
-            <path d="M14 26L20 20L26 26" stroke="white" strokeWidth="4" strokeLinecap="square"/>
+            <path d="M8 32V20L20 8L32 20V32" stroke="var(--acc)" strokeWidth="4" strokeLinejoin="round"/>
+            <path d="M13 26L20 19L27 26" stroke="white" strokeWidth="4" strokeLinecap="square"/>
             <rect x="18" y="30" width="4" height="4" fill="var(--acc)" opacity="0.6"/>
           </svg>
           <span className="pr-brand-name">ALAA <span className="pr-brand-dot">.</span> AS'AD</span>
@@ -179,6 +190,9 @@ export default function PremiumPortfolio() {
         </div>
 
         <div className="pr-nav-end">
+          <button onClick={() => setIsDark(!isDark)} className="pr-theme-toggle">
+            {isDark ? <Sun size={18}/> : <Moon size={18}/>}
+          </button>
           <div className="pr-nav-desktop-links">
             <a href="https://github.com/AlaaAsaad03" className="pr-icon-link" target="_blank" rel="noreferrer"><Github size={17}/></a>
             <a href="https://linkedin.com/in/alaa-asaad-505740355/" className="pr-icon-link" target="_blank" rel="noreferrer"><Linkedin size={17}/></a>
@@ -541,8 +555,8 @@ export default function PremiumPortfolio() {
             <div className="pr-footer-brand">
               <div className="pr-brand">
                 <svg className="pr-logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10 32V20L20 8L30 20V32" stroke="var(--acc)" strokeWidth="4" strokeLinejoin="round"/>
-                  <path d="M14 26L20 20L26 26" stroke="white" strokeWidth="4" strokeLinecap="square"/>
+                  <path d="M8 32V20L20 8L32 20V32" stroke="var(--acc)" strokeWidth="4" strokeLinejoin="round"/>
+                  <path d="M13 26L20 19L27 26" stroke="var(--txt)" strokeWidth="4" strokeLinecap="square"/>
                   <rect x="18" y="30" width="4" height="4" fill="var(--acc)" opacity="0.6"/>
                 </svg>
                 <span className="pr-brand-name">ALAA . AS'AD</span>
@@ -560,14 +574,20 @@ export default function PremiumPortfolio() {
       </footer>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
         :root {
+          /* ─ Dark Base ─ */
           --bg:#04040A; --surf:#0C0C15; --surf2:#12121E;
           --border:#1D1D2E; --border2:#252538;
-          --acc:#6366F1; --acc-dim:rgba(99,102,241,0.1);
-          --txt:#EEEEF4; --mute:#6B7280; --mute2:#374151;
-          --r:10px; --rsm:7px;
+          --acc:#6366F1; --acc-dim:rgba(99,102,241,0.12);
+          --txt:#EEEEF4; --mute:#94A3B8; --mute2:#334155;
+          --r:14px; --rsm:8px;
+        }
+
+        [data-theme='light'] {
+          --bg:#F8FAFC; --surf:#FFFFFF; --surf2:#F1F5F9;
+          --border:#E2E8F0; --border2:#CBD5E1;
+          --acc:#4F46E5; --acc-dim:rgba(79,70,229,0.08);
+          --txt:#0F172A; --mute:#64748B; --mute2:#94A3B8;
         }
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
         html{scroll-behavior:smooth;scroll-padding-top:76px;}
@@ -586,25 +606,28 @@ export default function PremiumPortfolio() {
         .pr-pulse-dot.sm{width:6px;height:6px;}
         @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
 
-        /* ─ Nav ─ */
+        /* ─ Theme Toggle ─ */
+        .pr-theme-toggle{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:#FFFFFF;width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;margin-right:.5rem;}
+        .pr-theme-toggle:hover{background:rgba(255,255,255,0.12);border-color:var(--acc);transform:translateY(-2px);}
         .pr-nav{position:fixed;top:36px;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;transition:all .3s;}
-        .pr-nav--solid{top:0;background:rgba(4,4,10,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);}
+        .pr-nav--solid{top:0;background:#04040A;opacity:0.98;backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,0.08);}
         .pr-brand{display:flex;align-items:center;gap:.75rem;transition:transform .2s;}
         .pr-brand:hover{transform:scale(1.02);}
         .pr-logo-svg{width:32px;height:32px;filter:drop-shadow(0 0 12px var(--acc-dim));}
-        .pr-brand-name{font-weight:950;font-size:1.15rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--txt);display:flex;align-items:center;margin-left:0.6rem;}
-        .pr-brand-dot{color:var(--acc);margin:0 12px;font-weight:950;opacity:0.8;}
-        .pr-nav-center{display:flex;gap:2rem;}
-        .pr-nav-link{font-size:.82rem;font-weight:600;color:var(--mute);transition:color .2s;}
-        .pr-nav-link:hover{color:var(--txt);}
+        .pr-brand-name{font-weight:950;font-size:1.15rem;letter-spacing:0.25em;text-transform:uppercase;color:#FFFFFF;display:flex;align-items:center;margin-left:0.6rem; transition: transform .3s;}
+        .pr-brand-dot{color:var(--acc);margin:0 12px;font-weight:950;opacity:0.9; transition: color .3s;}
+        [data-theme='light'] .pr-brand-dot { opacity: 1; }
+         .pr-nav-center{display:flex;gap:2rem;}
+        .pr-nav-link{font-size:.82rem;font-weight:600;color:rgba(255,255,255,0.7);transition:color .2s;}
+        .pr-nav-link:hover{color:#FFFFFF;}
         .pr-nav-end{display:flex;align-items:center;gap:.6rem;}
         .pr-nav-desktop-links { display: flex; gap: .6rem; }
-        .pr-icon-link{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--mute);transition:all .2s;}
-        .pr-icon-link:hover{color:var(--txt);border-color:var(--acc);}
-        .pr-hire-btn{padding:.5rem 1.2rem;background:var(--acc);color:#fff;border-radius:var(--rsm);font-weight:700;font-size:.78rem;transition:opacity .2s;}
+        .pr-icon-link{width:34px;height:34px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);transition:all .2s;}
+        .pr-icon-link:hover{color:#FFFFFF;border-color:var(--acc);}
+        .pr-hire-btn{padding:.5rem 1.5rem;background:var(--acc);color:#fff;border-radius:var(--rsm);font-weight:700;font-size:.78rem;transition:opacity .2s;}
         .pr-hire-btn:hover{opacity:.85;}
         
-        .pr-mobile-toggle { display: none; background: none; border: none; color: var(--txt); cursor: pointer; padding: .5rem; }
+        .pr-mobile-toggle { display: none; background: none; border: none; color: #FFFFFF; cursor: pointer; padding: .5rem; }
         .pr-sidebar{width:100%;position:sticky;top:0;height:100vh;background:var(--surf);border-right:1px solid var(--border);padding:2.5rem 2rem;display:flex;flex-direction:column;justify-content:space-between;z-index:100;overflow-y:auto;}
         .pr-mobile-menu { position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 2rem; display: flex; flex-direction: column; gap: 2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         .pr-mobile-links { display: flex; flex-direction: column; gap: 1.25rem; }
@@ -907,10 +930,11 @@ export default function PremiumPortfolio() {
         /* ─ Credentials Bento ─ */
         .pr-bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
         .pr-bento-card { background: var(--surf); border: 1px solid var(--border); border-radius: var(--r); padding: 2rem; position: relative; overflow: hidden; display: flex; flex-direction: column; transition: all .3s; }
+        [data-theme='light'] .pr-bento-card { box-shadow: 0 10px 40px -15px rgba(0,0,0,0.05); }
         .pr-bento-card:hover { border-color: var(--acc); transform: translateY(-2px); }
         
-        .pr-bento-main-edu { grid-column: span 2; grid-row: span 1; justify-content: center; background: linear-gradient(135deg, var(--surf), #0d0d1a); }
-        .pr-bento-tag { position: absolute; top: 1.5rem; left: 2rem; font-family: monospace; font-size: .6rem; letter-spacing: .2em; color: var(--mute2); font-weight: 800; }
+        .pr-bento-main-edu { grid-column: span 2; grid-row: span 1; justify-content: center; background: linear-gradient(135deg, var(--surf), var(--surf2)); }
+        .pr-bento-tag { position: absolute; top: 1.5rem; left: 2rem; font-family: monospace; font-size: .6rem; letter-spacing: .2em; color: var(--mute); font-weight: 800; opacity: 0.6; }
         .pr-bento-edu-content { display: flex; gap: 2rem; align-items: center; margin-top: 1rem; }
         .pr-bento-icon-lg { width: 70px; height: 70px; background: var(--acc-dim); color: var(--acc); border-radius: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(99,102,241,0.2); }
         .pr-bento-yr { display: block; font-family: monospace; font-size: .75rem; color: var(--acc); font-weight: 800; margin-bottom: .2rem; }
@@ -979,8 +1003,10 @@ export default function PremiumPortfolio() {
         .pr-form-msg.error{color:#EF4444;}
 
         /* ─ Footer ─ */
-        .pr-footer{border-top:1px solid var(--border);padding:1.75rem 0;}
-        .pr-footer-inner{display:flex;align-items:center;justify-content:space-between;}
+        .pr-footer{border-top:1px solid var(--border);padding:3rem 0; background: var(--bg);}
+        .pr-footer .pr-brand-name { color: var(--txt); }
+        .pr-footer .pr-brand-dot { color: var(--acc); opacity: 1; }
+        .pr-footer-inner{display:flex;align-items:center;justify-content:space-between; gap: 2rem;}
         .pr-foot-brand{font-weight:900;font-size:1.1rem;letter-spacing:-.04em;}
         .pr-foot-copy{font-size:.72rem;color:var(--mute);font-weight:600;}
         .pr-foot-socials{display:flex;gap:1.1rem;}
@@ -1061,10 +1087,24 @@ export default function PremiumPortfolio() {
           .pr-contact-h{font-size:2.3rem; text-align:center;}
           .pr-form-row{grid-template-columns: 1fr;}
           
-          .pr-sidebar{height: 60px; padding: 0 1.5rem; flex-direction: row; align-items: center; background: rgba(4,4,10,0.85) !important; backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;}
-          .pr-content{padding: 60px 1rem 2rem;}
+          .pr-sidebar{height: 65px; padding: 0 1.25rem; flex-direction: row; align-items: center; justify-content: space-between; background: #04040A !important; opacity:0.98; backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;}
+          .pr-content{padding: 65px 1rem 2rem;}
 
-          .pr-hire-btn{width:auto; padding:0.5rem 1rem; font-size:0.85rem; height: 36px;}
+          .pr-brand-name{font-size: 0.95rem; letter-spacing: 0.15em; margin-left: 0.4rem; color: #FFFFFF; transition: none;}
+          .pr-brand-dot{margin: 0 6px;}
+          .pr-logo-svg{width: 26px; height: 26px;}
+
+          .pr-hire-btn{
+            width:auto; 
+            padding: 0 1rem; 
+            font-size: 0.78rem; 
+            height: 34px; 
+            white-space: nowrap; 
+            flex-shrink: 0; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+          }
           .pr-footer-inner{flex-direction:column; gap: 1.5rem; text-align:center;}
           .pr-foot-socials{justify-content: center;}
         }
@@ -1085,7 +1125,7 @@ export default function PremiumPortfolio() {
 
         /* ─ High-End Kinetic Loader ─ */
         .pr-kinetic-loader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-        .pr-loader-panel{position:absolute;left:0;width:100%;height:50%;background:#04040A;transition:transform 0.9s cubic-bezier(0.87, 0, 0.13, 1);z-index:1;}
+        .pr-loader-panel{position:absolute;left:0;width:100%;height:50%;background:var(--bg);transition:transform 0.9s cubic-bezier(0.87, 0, 0.13, 1);z-index:1;}
         .pr-panel-top{top:0;}
         .pr-panel-bottom{bottom:0;}
         

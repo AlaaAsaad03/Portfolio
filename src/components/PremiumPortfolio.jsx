@@ -177,7 +177,7 @@ export default function PremiumPortfolio() {
         <a href="#home" className="pr-brand">
           <svg className="pr-logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 32V20L20 8L32 20V32" stroke="var(--acc)" strokeWidth="4" strokeLinejoin="round"/>
-            <path d="M13 26L20 19L27 26" stroke="white" strokeWidth="4" strokeLinecap="square"/>
+            <path d="M13 26L20 19L27 26" stroke="var(--txt)" strokeWidth="4" strokeLinecap="square"/>
             <rect x="18" y="30" width="4" height="4" fill="var(--acc)" opacity="0.6"/>
           </svg>
           <span className="pr-brand-name">ALAA <span className="pr-brand-dot">.</span> AS'AD</span>
@@ -601,33 +601,34 @@ export default function PremiumPortfolio() {
 
         /* ─ Topbar ─ */
         .pr-topbar{display:flex;align-items:center;justify-content:center;gap:1rem;padding:.55rem 2rem;background:var(--acc-dim);border-bottom:1px solid rgba(99,102,241,.18);font-size:.72rem;font-weight:600;color:var(--mute);}
+        .pr-topbar span { color: var(--mute); }
         .pr-topbar-cta{color:var(--acc);font-weight:700;}
         .pr-pulse-dot{width:7px;height:7px;border-radius:50%;background:#10B981;display:inline-block;animation:pulse 2s infinite;}
         .pr-pulse-dot.sm{width:6px;height:6px;}
         @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
 
         /* ─ Theme Toggle ─ */
-        .pr-theme-toggle{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:#FFFFFF;width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;margin-right:.5rem;}
-        .pr-theme-toggle:hover{background:rgba(255,255,255,0.12);border-color:var(--acc);transform:translateY(-2px);}
+        .pr-theme-toggle{background:var(--surf2);border:1px solid var(--border);color:var(--txt);width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;}
+        .pr-theme-toggle:hover{border-color:var(--acc);transform:translateY(-2px);}
         .pr-nav{position:fixed;top:36px;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;transition:all .3s;}
-        .pr-nav--solid{top:0;background:#04040A;opacity:0.98;backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,0.08);}
+        .pr-nav--solid{top:0;background:var(--bg);opacity:0.98;backdrop-filter:blur(18px);border-bottom:1px solid var(--border);}
         .pr-brand{display:flex;align-items:center;gap:.75rem;transition:transform .2s;}
         .pr-brand:hover{transform:scale(1.02);}
         .pr-logo-svg{width:32px;height:32px;filter:drop-shadow(0 0 12px var(--acc-dim));}
-        .pr-brand-name{font-weight:950;font-size:1.15rem;letter-spacing:0.25em;text-transform:uppercase;color:#FFFFFF;display:flex;align-items:center;margin-left:0.6rem; transition: transform .3s;}
+        .pr-brand-name{font-weight:950;font-size:1.15rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--txt);display:flex;align-items:center;margin-left:0.6rem; transition: transform .3s;}
         .pr-brand-dot{color:var(--acc);margin:0 12px;font-weight:950;opacity:0.9; transition: color .3s;}
         [data-theme='light'] .pr-brand-dot { opacity: 1; }
          .pr-nav-center{display:flex;gap:2rem;}
-        .pr-nav-link{font-size:.82rem;font-weight:600;color:rgba(255,255,255,0.7);transition:color .2s;}
-        .pr-nav-link:hover{color:#FFFFFF;}
+        .pr-nav-link{font-size:.82rem;font-weight:600;color:var(--mute);transition:color .2s;}
+        .pr-nav-link:hover{color:var(--txt);}
         .pr-nav-end{display:flex;align-items:center;gap:.6rem;}
         .pr-nav-desktop-links { display: flex; gap: .6rem; }
-        .pr-icon-link{width:34px;height:34px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);transition:all .2s;}
-        .pr-icon-link:hover{color:#FFFFFF;border-color:var(--acc);}
+        .pr-icon-link{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--mute);transition:all .2s;}
+        .pr-icon-link:hover{color:var(--txt);border-color:var(--acc);}
         .pr-hire-btn{padding:.5rem 1.5rem;background:var(--acc);color:#fff;border-radius:var(--rsm);font-weight:700;font-size:.78rem;transition:opacity .2s;}
         .pr-hire-btn:hover{opacity:.85;}
         
-        .pr-mobile-toggle { display: none; background: none; border: none; color: #FFFFFF; cursor: pointer; padding: .5rem; }
+        .pr-mobile-toggle { display: none; background: none; border: none; color: var(--txt); cursor: pointer; padding: .5rem; }
         .pr-sidebar{width:100%;position:sticky;top:0;height:100vh;background:var(--surf);border-right:1px solid var(--border);padding:2.5rem 2rem;display:flex;flex-direction:column;justify-content:space-between;z-index:100;overflow-y:auto;}
         .pr-mobile-menu { position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 2rem; display: flex; flex-direction: column; gap: 2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         .pr-mobile-links { display: flex; flex-direction: column; gap: 1.25rem; }
@@ -737,7 +738,7 @@ export default function PremiumPortfolio() {
         .pr-bento-card { background: var(--surf); border: 1px solid var(--border); border-radius: var(--r); padding: 2rem; position: relative; overflow: hidden; display: flex; flex-direction: column; transition: all .3s; }
         .pr-bento-card:hover { border-color: var(--acc); transform: translateY(-2px); }
         
-        .pr-bento-main-edu { grid-column: span 2; grid-row: span 1; justify-content: center; background: linear-gradient(135deg, var(--surf), #0d0d1a); }
+        .pr-bento-main-edu { grid-column: span 2; grid-row: span 1; justify-content: center; background: linear-gradient(135deg, var(--surf), var(--surf2)); }
         .pr-bento-tag { position: absolute; top: 1.5rem; left: 2rem; font-family: monospace; font-size: .6rem; letter-spacing: .2em; color: var(--mute2); font-weight: 800; }
         .pr-bento-edu-content { display: flex; gap: 2rem; align-items: center; margin-top: 1rem; }
         .pr-bento-icon-lg { width: 70px; height: 70px; background: var(--acc-dim); color: var(--acc); border-radius: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(99,102,241,0.2); }
@@ -1016,13 +1017,14 @@ export default function PremiumPortfolio() {
         /* ─ Responsive ─ */
         @media (max-width: 1024px) {
           .pr-main-layout{grid-template-columns: 1fr; overflow-x: hidden;}
-          .pr-sidebar{height:auto;border-right:none;border-bottom:1px solid var(--border);padding:1.25rem 1rem;position:fixed;width:100%;top:0;z-index:1000;background:rgba(4,4,10,0.8);backdrop-filter:blur(10px);}
+          .pr-sidebar{height:auto;border-right:none;border-bottom:1px solid var(--border);padding:1.25rem 1rem;position:fixed;width:100%;top:0;z-index:1000;background:var(--bg);backdrop-filter:blur(10px);}
           .pr-sidebar-nav{display:none;}
           .pr-sidebar-footer{display:none;}
           .pr-content{padding:7rem 1.25rem 3.5rem;}
-          .pr-nav{top:0;padding:1rem 1.5rem;background:rgba(4,4,10,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+          .pr-nav{top:0;padding:1rem 1.5rem;background:var(--bg);opacity:0.98;backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
           .pr-nav-center{display:none;}
           .pr-nav-desktop-links{display:none;}
+          .pr-mobile-toggle{display:block;}
         }
 
         @media (max-width: 768px) {
@@ -1087,10 +1089,10 @@ export default function PremiumPortfolio() {
           .pr-contact-h{font-size:2.3rem; text-align:center;}
           .pr-form-row{grid-template-columns: 1fr;}
           
-          .pr-sidebar{height: 65px; padding: 0 1.25rem; flex-direction: row; align-items: center; justify-content: space-between; background: #04040A !important; opacity:0.98; backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;}
+          .pr-sidebar{height: 65px; padding: 0 1.25rem; flex-direction: row; align-items: center; justify-content: space-between; background: var(--bg) !important; opacity:0.98; backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;}
           .pr-content{padding: 65px 1rem 2rem;}
 
-          .pr-brand-name{font-size: 0.95rem; letter-spacing: 0.15em; margin-left: 0.4rem; color: #FFFFFF; transition: none;}
+          .pr-brand-name{font-size: 0.95rem; letter-spacing: 0.15em; margin-left: 0.4rem; color: var(--txt); transition: none;}
           .pr-brand-dot{margin: 0 6px;}
           .pr-logo-svg{width: 26px; height: 26px;}
 
@@ -1110,6 +1112,11 @@ export default function PremiumPortfolio() {
         }
 
         @media (max-width: 420px) {
+          .pr-nav{padding: 1rem 1rem !important;}
+          .pr-nav-end{gap: 0.4rem;}
+          .pr-brand-name{font-size: 0.85rem; letter-spacing: 0.1em;}
+          .pr-brand-dot{margin: 0 4px;}
+          .pr-logo-svg{width: 24px; height: 24px;}
           .pr-hero-h1{font-size: 2rem; letter-spacing: -0.05em;}
           .pr-hero-p{font-size: 0.85rem; line-height: 1.5; color: var(--mute);}
           .pr-bento-card{padding: 1.5rem 1rem !important;}

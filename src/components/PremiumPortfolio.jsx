@@ -4,15 +4,18 @@ import { Github, Linkedin, Mail, Download, ExternalLink, ArrowRight, ArrowUpRigh
 import profileImg from '../assets/profile.png';
 
 const EXP = [
+  { company: 'Elekron Ventures', role: 'Full Stack Developer Intern', period: 'Jun – Aug 2026', location: 'Remote',
+    points: ['Built responsive, reusable React.js interfaces from Figma designs for FrequenC, a production-grade web platform','Developed and maintained backend APIs and contributed to scalable application architecture','Collaborated with cross-functional teams via Git workflows, code reviews, and technical discussions','Debugged, refactored, and optimised components to improve performance and user experience'],
+    tech: ['React.js','TypeScript','Tailwind CSS','Node.js','NestJS','MongoDB','Socket.IO','GSAP'] },
   { company: 'URM Enroll', role: 'Backend Team Lead Intern', period: 'Jan – Feb 2026', location: 'Berlin · Remote',
     points: ['Architected PostgreSQL 16 + Row-Level Security for multi-tenant SaaS across 10+ entities','Built AI CV parsing with Deno Edge Functions achieving 70% structured extraction accuracy','Designed weighted 0–100 matching engine for international student placement','Automated compliance pipeline processing 500+ documents with audit logging'],
     tech: ['NestJS','Supabase','PostgreSQL','Deno','TypeScript'] },
   { company: 'ADADK', role: 'Full Stack Developer Intern', period: 'Dec 2025 – Jan 2026', location: 'Berlin · Remote',
     points: ['Built RESTful APIs managing lifecycle of 100+ connected IoT devices','Architected multi-tenant PostgreSQL schema across properties, zones & technicians','Implemented real-time leak alerts via Socket.io + Redis WebSockets','Enterprise JWT & Google OAuth multi-role access control'],
     tech: ['NestJS','PostgreSQL','Socket.io','Redis','TypeORM'] },
-  { company: 'INJAZ Lebanon', role: 'Project Management Intern', period: 'Nov – Dec 2025', location: 'Beirut',
-    points: ['Python/Pandas automation reduced manual data entry by 40%','Automated compliance reports across 200+ student records','Coordinated supplier pipeline achieving 100% on-time delivery'],
-    tech: ['Python','Pandas','OpenPyXL','Google Sheets API'] },
+  { company: 'INJAZ Lebanon', role: 'Project Management & Support Intern', period: 'Nov – Dec 2025', location: 'Beirut',
+    points: ['Maintained Excel tracking sheets, improving data accuracy and reducing errors by 10%','Coordinated supplier documentation and student registrations ensuring on-schedule completion','Produced reports to help the program manager track progress and make timely decisions','Supported daily operations (data entry, scheduling, documentation) improving team productivity'],
+    tech: ['Google Sheets API','Excel','Data Analytics'] },
   { company: 'IDS Fintech', role: 'Full Stack Developer Intern', period: 'Jul – Aug 2024', location: 'Beirut',
     points: ['SQL + EF + Dapper optimisations cut API response time by 35%','Angular + DevExtreme UI components for banking dashboard','Improved user engagement by 30% through enhanced data handling'],
     tech: ['.NET Core','C#','Angular','SQL Server','Dapper','ADO.NET'] },
@@ -36,19 +39,23 @@ const PROJECTS = [
     tech:['ASP.NET Core','C#','SQL Server','Syncfusion','MVC'], metric:'Data Visualization', accent:'#60A5FA', git:'https://github.com/AlaaAsaad03/Waltrack', live:'#' },
 ];
 
-const SKILLS = ['JavaScript','TypeScript','C#','Python','PHP','React.js','Next.js','Angular','Node.js','NestJS','ASP.NET','Flask','PostgreSQL','SQL Server','MongoDB','MySQL','Redis','Supabase','Docker','Azure','Git','Deno','Socket.io','TypeORM','Entity Framework','Dapper','ADO.NET','MVC Architecture','SOLID Principles','REST APIs','Tailwind CSS','Framer Motion','Syncfusion','DevExtreme','Pandas','OpenPyXL','Data Analytics'];
+const SKILLS = ['JavaScript','TypeScript','C#','Python','PHP','React.js','Next.js','Angular','Bootstrap','Node.js','NestJS','ASP.NET','Flask','PostgreSQL','SQL Server','MongoDB','MySQL','Redis','Supabase','Docker','Azure','Git','Deno','Socket.io','TypeORM','Entity Framework','Dapper','ADO.NET','MVC Architecture','SOLID Principles','REST APIs','Tailwind CSS','GSAP','Framer Motion','Syncfusion','DevExtreme','Pandas','OpenPyXL','Jupyter Notebook','Postman','SSMS','MySQL Workbench','Jira','Canva','MS Office','XAMPP','PhpMyAdmin','Agile / Scrum','Data Analytics'];
 
 const CERTS = [
-  ['Generation AI','Google.org / eFlow.ai','SEP 2025'],
-  ['Ready4Work','INJAZ Lebanon','SEP 2025'],
-  ['Clean & Scalable Code','SE Excellence','AUG 2025'],
-  ['Foundational C#','Microsoft','JUL 2025'],
-  ['Prompt Engineering','Tech Trendy','JUL 2025'],
-  ['Entrepreneurship & AI','Ektidar Project','JUL 2025'],
-  ['MERN Stack Development','Udemy','MAY 2025'],
-  ['Frontend Developer (React)','HackerRank','MAY 2025'],
-  ['PHP Boot Camp','Udemy','DEC 2024'],
-  ['React JavaScript','Alison','OCT 2024'],
+  ['Girls Who Excel','PWC Middle East','JUN 2026','Ny6k2Wv0KCZ2'],
+  ['Digital Employment Readiness','The Nawaya Network','JUN 2026','Ncba4JSNY0A'],
+  ['Prompt Engineering for ChatGPT & AI Tools','Cedar Digital Solutions','JAN 2026','AA25095481'],
+  ['1 Million Prompter','Dubai Future Foundation','SEP 2025','AB6095481'],
+  ['Generation AI','Google.org / eFlow.ai','SEP 2025','SxnRVzpgW6-iy'],
+  ['Ready4Work','INJAZ Lebanon','SEP 2025','AA25095481'],
+  ['Clean & Scalable Code','SE Excellence','AUG 2025','cert-dsc0d810c'],
+  ['Foundational C# with Microsoft','Microsoft','JUL 2025','alaa_asaad-fcswm'],
+  ['Prompt Engineering','Tech Trendy','JUL 2025','pBUYmniEWcje1'],
+  ['Entrepreneurship & AI','Ektidar Project','JUL 2025','1R5YBnBQUxPbi'],
+  ['MERN Stack Development','Udemy','MAY 2025','UC-4dc27feb-8648-4a67-835a-155ecc0376ce'],
+  ['Frontend Developer (React)','HackerRank','MAY 2025','1c0cf525e0b'],
+  ['PHP Boot Camp with MySQL','Udemy','DEC 2024','UC-91941e06-7bc8-464e-9278-64ac6b61e68e'],
+  ['React JavaScript','Alison','OCT 2024','1ymUjGYNAvTy1YwB_drC62lxmdhHQVz5d'],
 ];
 
 const fade = (delay = 0) => ({
@@ -256,7 +263,7 @@ export default function PremiumPortfolio() {
             </motion.div>
 
             <motion.div {...fade(0.45)} className="pr-hero-stats">
-              {[['4+','Internships'],['15+','Projects'],['10+','Certifications']].map(([n,l]) => (
+              {[['5+','Internships'],['15+','Projects'],['14+','Certifications']].map(([n,l]) => (
                 <div key={l} className="pr-stat">
                   <span className="pr-stat-n">{n}</span>
                   <span className="pr-stat-l">{l}</span>
@@ -416,20 +423,20 @@ export default function PremiumPortfolio() {
             {/* 3. Status Card (Span 1x1) */}
             <motion.div {...fade(0.2)} className="pr-bento-card pr-bento-stat">
               <div className="pr-bento-icon-sm"><ShieldCheck size={24}/></div>
-              <span className="pr-stat-val">10+</span>
+              <span className="pr-stat-val">14+</span>
               <p>Industry Verified Certifications</p>
             </motion.div>
 
             {/* 4. Certifications Grid (Span 4) */}
             <div className="pr-bento-cert-deck">
-              {CERTS.map(([name, issuer, yr], i) => (
+              {CERTS.map(([name, issuer, yr, credId], i) => (
                 <motion.div 
                   key={i} 
                   {...fade(0.25 + (i * 0.04))} 
                   className="pr-bento-tile"
                 >
                   <div className="pr-tile-head">
-                    <span className="pr-tile-n">REF-0{i+1}</span>
+                    <span className="pr-tile-n">REF-{String(i+1).padStart(2,'0')}</span>
                     <Award size={12} className="pr-tile-icon" />
                   </div>
                   <h4 className="pr-tile-name">{name}</h4>
@@ -437,6 +444,7 @@ export default function PremiumPortfolio() {
                     <span className="pr-tile-issuer">{issuer}</span>
                     <span className="pr-tile-yr">{yr}</span>
                   </div>
+                  {credId && <span className="pr-tile-credid" title={`Credential ID: ${credId}`}>ID: {credId}</span>}
                   <div className="pr-tile-check"><ShieldCheck size={10} /> VERIFIED</div>
                 </motion.div>
               ))}
@@ -771,6 +779,7 @@ export default function PremiumPortfolio() {
         .pr-tile-issuer { font-family: monospace; font-size: .55rem; font-weight: 900; color: var(--mute); text-transform: uppercase; letter-spacing: .05em; }
         .pr-tile-yr { font-size: .65rem; font-weight: 700; color: var(--mute2); }
         .pr-tile-check { font-size: .5rem; font-weight: 900; color: #10B981; letter-spacing: .1em; display: flex; align-items: center; gap: .3rem; margin-top: .4rem; border-top: 1px solid var(--border); padding-top: .6rem; }
+        .pr-tile-credid { font-family: monospace; font-size: .5rem; color: var(--mute2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; cursor: default; }
 
         @media (max-width: 1100px) {
           .pr-bento-cert-deck { grid-template-columns: repeat(3, 1fr); }
@@ -967,6 +976,7 @@ export default function PremiumPortfolio() {
         .pr-tile-issuer { font-family: monospace; font-size: .55rem; font-weight: 900; color: var(--mute); text-transform: uppercase; letter-spacing: .05em; }
         .pr-tile-yr { font-size: .65rem; font-weight: 700; color: var(--mute2); }
         .pr-tile-check { font-size: .5rem; font-weight: 900; color: #10B981; letter-spacing: .1em; display: flex; align-items: center; gap: .3rem; margin-top: .4rem; border-top: 1px solid var(--border); padding-top: .6rem; }
+        .pr-tile-credid { font-family: monospace; font-size: .5rem; color: var(--mute2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; cursor: default; }
 
         @media (max-width: 1100px) {
           .pr-bento-cert-deck { grid-template-columns: repeat(3, 1fr); }

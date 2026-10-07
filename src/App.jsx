@@ -1,8 +1,7 @@
-import PremiumPortfolio from './components/PremiumPortfolio'
-import "./index.css"
+import Home from './components/Home'
 
 function App() {
-  return <PremiumPortfolio />;
+  return <Home />;
 }
 
 export default App
